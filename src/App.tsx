@@ -4,6 +4,7 @@ import './App.css';
 import TodoList from './components/todoList';
 import Pomodoro from './components/pomodoro';
 import Counters from './components/counters';
+import { Grid, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 
 
 /*
@@ -23,34 +24,60 @@ TODO
   - new page: twitter
 */
 
-
-function About() {
-  return <h2>About</h2>;
+interface Navbar {
+  name: string;
+  href: string;
+  // icon: // add icons later
 }
 
+const navbar: Navbar[] = [
+  {
+    name: 'Home',
+    href: '/'
+  },
+  {
+    name: 'Todo List App',
+    href: '/#/todolist'
+  },
+  {
+    name: 'Pomodoro',
+    href: '/#/pomodoro'
+  },
+  {
+    name: 'Counters',
+    href: '/#/counters'
+  },
+]
 
 function App() {
   return (
     <div className="App">
-      <h1>Title</h1>
-      <nav>
-        <ul style={{listStyle: "none"}}>
-          <li><a href="/">Home</a></li>
-          <li><a href="/#/about">About</a></li>
-          <li><a href="/#/todolist">Todo List App</a></li>
-          <li><a href="/#/pomodoro">Pomodoro</a></li>
-          <li><a href="/#/counters">Counters</a></li>
-        </ul>
-      </nav>
-      <HashRouter>
-        <Routes>
-          <Route path="/"/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/todolist" element={<TodoList/>}/>
-          <Route path="/pomodoro" element={<Pomodoro/>}/>
-          <Route path="/counters" element={<Counters/>}/>
-        </Routes>
-      </HashRouter>
+      <Grid item xs={12}>
+        <h1>Portfolio</h1>
+      </Grid>
+      <Grid container spacing={2}>
+      <Grid item xs="auto">
+      <List>
+          {navbar.map((navItem) => (
+            <ListItem key={navItem.name} disablePadding>
+              <ListItemButton href={navItem.href}>
+                <ListItemText primary={navItem.name}/>
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Grid>
+      <Grid item xs={9}>
+        <HashRouter>
+          <Routes>
+            <Route path="/"/>
+            <Route path="/todolist" element={<TodoList/>}/>
+            <Route path="/pomodoro" element={<Pomodoro/>}/>
+            <Route path="/counters" element={<Counters/>}/>
+          </Routes>
+        </HashRouter>
+      </Grid>
+    </Grid>
     </div>
   );
 }

@@ -9,13 +9,13 @@ export default function Pomodoro() {
     const [timeLeft, setTimeLeft] = useState<number>(0);
     const [running, setRunning] = useState(false);
     const [settings, setSettings] = useState({
-        // shortBreakSeconds: 5 * 60,
-        // longBreakSeconds: 15 * 60,
-        // focusSeconds: 25 * 60,
+        shortBreakSeconds: 5 * 60,
+        longBreakSeconds: 15 * 60,
+        focusSeconds: 25 * 60,
         // numbers for testings
-        shortBreakSeconds: 1,
-        longBreakSeconds: 3,
-        focusSeconds: 5,
+        // shortBreakSeconds: 1,
+        // longBreakSeconds: 3,
+        // focusSeconds: 5,
     })
     const [updatedSettings, setUpdatedSettings] = useState({
         shortBreakSeconds: 5 * 60,
