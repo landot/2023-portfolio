@@ -5,7 +5,8 @@ import TodoList from './components/todoList';
 import Pomodoro from './components/pomodoro';
 import Counters from './components/counters';
 import { Grid, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
-
+import DailyComponentLandingPage from './components/dailyComponentLandingPage';
+import DayOne from './components/daily/dayOne/searchBar';
 
 /*
 TODO
@@ -47,13 +48,17 @@ const navbar: Navbar[] = [
     name: 'Counters',
     href: '/#/counters'
   },
+  {
+    name: 'Daily Component',
+    href: '/#/dailycomponent'
+  },
 ]
 
 function App() {
   return (
     <div className="App">
       <Grid item xs={12}>
-        <h1>Portfolio</h1>
+        <h1>Tim Landowski Portfolio</h1>
       </Grid>
       <Grid container spacing={2}>
       <Grid item xs="auto">
@@ -74,6 +79,8 @@ function App() {
             <Route path="/todolist" element={<TodoList/>}/>
             <Route path="/pomodoro" element={<Pomodoro/>}/>
             <Route path="/counters" element={<Counters/>}/>
+            <Route path="/dailycomponent" element={<DailyComponentLandingPage/>}/>
+            <Route path="/dailycomponent/1" element={<DayOne/>}/>
           </Routes>
         </HashRouter>
       </Grid>

@@ -2,17 +2,29 @@
   text-align: center;
 }
 
-body {
-  background-color: #0d1117;
+body, .MuiDrawer-root {
+  background-color:  #fff;
 }
 
 .MuiListItemText-primary, h1, h2, p, label {
-  color: #fff
+  color: #0d1117;
 }
 
-h1 {
-  background-color: #21262d;
-  padding: 10px;
+/* for search box */
+.searchInput::placeholder {
+  color: #fff;
+}
+
+.searchInput:focus::placeholder {
+  color: transparent;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchInput {
+  color: #fff;
 }
 
 *{
